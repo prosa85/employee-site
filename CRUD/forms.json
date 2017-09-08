@@ -1,0 +1,70 @@
+{
+    "fields": [
+        {
+            "name": "date_of_request",
+            "type": "date"
+        },
+        {
+            "name": "status",
+            "type": "select",
+            "options": ["Full Time", "Part Time", "Salary", "Hourly"]
+        },
+        {
+            "name":"type_of_absence",
+            "type":"select",
+            "options":["Sick", "Vacation", "Bereavement", "Time off without pay", "Holiday Vacation", "Military Leave", "Jury Duty", "Maternity Leave"]
+        },
+        {
+            "name":"hr_status",
+            "type":"select",
+            "options":["Approved", "Rejected", "Pending"]
+        },
+        {
+            "name": "status_changed_by",
+            "type": "integer#nullable"
+        },
+        {
+            "name": "user_id",
+            "type": "integer"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\User"
+        },
+        {
+            "name": "entries",
+            "type": "haveMany",
+            "class": "App\\Entry"
+        }
+    ],
+    "validations": [
+        
+        {
+            "field" :"date_of_request",
+            "rules":"required|date"
+        },
+        {
+            "field" :"status",
+            "rules":"required"
+        },
+        {
+            "field" :"type_of_absence",
+            "rules":"required"
+        },
+        {
+            "field" :"user_id",
+            "rules":"required"
+        }
+    ]
+}

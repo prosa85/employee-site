@@ -1,0 +1,23 @@
+{
+    "fields": [
+        {
+            "name": "date_of_absence",
+            "type": "date"
+        },
+        {
+        	"name":"hours",
+        	"type":"decimal"
+        },
+        {
+        	"name":"form_id",
+        	"type":"integer"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "forms",
+            "type": "belongsTo",
+            "class": "App\\requestform"
+        }
+    ]
+}

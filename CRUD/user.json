@@ -1,0 +1,46 @@
+{
+	"fields": [
+		{
+			"name": "name",
+			"type": "string"
+		},
+		{
+			"name": "username",
+			"type": "string"
+		},
+		{
+			"name": "email",
+			"type": "email"
+		},
+		{
+			"name": "password",
+			"type": "password"
+		}
+	],
+	"relationships": [
+	    {
+	        "name": "forms",
+	        "type": "haveMAny",
+	        "class": "App\\requestform"
+	    }
+	],
+	"validations": [
+	    
+	    {
+	        "field" :"name",
+	        "rules":"required"
+	    },
+	    {
+	        "field" :"username",
+	        "rules":"required"
+	    },
+	    {
+	        "field" :"email",
+	        "rules":"required"
+	    },
+	    {
+	        "field" :"password",
+	        "rules":"required"
+	    }
+	]
+}
